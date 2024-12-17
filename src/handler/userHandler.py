@@ -20,7 +20,7 @@ class UserAdd(BaseHandler):
                 User.insert(name=self.get_json_body("username"), nickname=self.get_json_body("nickname"),
                             email=self.get_json_body("email"), password=base64_encode(self.get_json_body("password")),
                             title_url=self.get_json_body("titleUrl"), describe=self.get_json_body("describe"),
-                            u_group_id=self.get_json_body("uGroupId"), create_at=datetime.now)
+                            u_group_id=self.get_json_body("uGroupId"), create_at=datetime.now())
                 data_code["msg"] = "User add success"
                 self.write(data_code)
         except EOFError as e:
@@ -31,8 +31,6 @@ class UserAdd(BaseHandler):
 
 class UserModify(BaseHandler):
     def post(self):
-        print(self.get_json_body("nickname"), self.get_json_body("email"), self.get_json_body("titleUrl"),
-              self.get_json_body("describe"), datetime.now())
         try:
             User.update(nickname=self.get_json_body("nickname"), email=self.get_json_body("email"),
                         title_url=self.get_json_body("titleUrl"), describe=self.get_json_body("describe"),
