@@ -13,6 +13,7 @@ DateField / DateTimeField: 用于日期和时间。
 BooleanField: 用于布尔值。
 """
 
+
 class User(Model):
     user_id = PrimaryKeyField()
     name = CharField(unique=True, max_length=32)
@@ -30,6 +31,7 @@ class User(Model):
         database = db
         table_name = "user"
 
+
 class Group(Model):
     u_group_id = PrimaryKeyField()
     name = CharField()
@@ -42,6 +44,7 @@ class Group(Model):
         database = db
         table_name = "group"
 
+
 class Route(Model):
     r_id = PrimaryKeyField()
     path = CharField()
@@ -50,6 +53,7 @@ class Route(Model):
     class Meta:
         database = db
         table_name = "route"
+
 
 class Secrets(Model):
     secrets_id = PrimaryKeyField()
