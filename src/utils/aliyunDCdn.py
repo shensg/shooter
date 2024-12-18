@@ -10,7 +10,7 @@ from alibabacloud_tea_openapi import models as open_api_models
 from alibabacloud_dcdn20180115 import models as dcdn_20180115_models
 from alibabacloud_tea_util import models as util_models
 from alibabacloud_tea_util.client import Client as UtilClient
-from config import ALIYUN_ACCESS_KEY_ID, ALIYUN_ACCESS_KEY_SECRET
+from src.models.sys import Secrets
 
 
 class Sample(object):

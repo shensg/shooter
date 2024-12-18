@@ -5,9 +5,11 @@ from src.handler import BaseHandler
 from src.models.sys import User
 from src.utils import base64_encode
 from config import data_code
+from src.handler import login_jwt_required
 
 
 class UserAdd(BaseHandler):
+    @login_jwt_required
     def post(self):
         user_data = User.select().where(User.name == self.get_json_body("username")).get()
         try:
@@ -30,6 +32,7 @@ class UserAdd(BaseHandler):
 
 
 class UserModify(BaseHandler):
+    @login_jwt_required
     def post(self):
         try:
             User.update(nickname=self.get_json_body("nickname"), email=self.get_json_body("email"),
@@ -44,6 +47,7 @@ class UserModify(BaseHandler):
 
 
 class UserDelete(BaseHandler):
+    @login_jwt_required
     def post(self):
         User.delete().where(User.user_id == self.get_json_body("userId"))
         data_code["msg"] = "User delete success"
@@ -51,6 +55,7 @@ class UserDelete(BaseHandler):
 
 
 class UserGet(BaseHandler):
+    @login_jwt_required
     def get(self):
         try:
             user_data = User.select().where(User.name == self.get_query_param("username")).get()

@@ -55,8 +55,9 @@ class Secrets(Model):
     secrets_id = PrimaryKeyField()
     name = CharField()
     platform = CharField()
-    access_key_id = CharField()
+    access_key_id = CharField(default=None)
     access_key_secret = CharField()
+    zone_id = CharField(default=None)
     describe = CharField()
 
     class Meta:

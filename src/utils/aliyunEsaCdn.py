@@ -11,9 +11,6 @@ from alibabacloud_tea_util import models as util_models
 from alibabacloud_tea_util.client import Client as UtilClient
 from src.models.sys import Secrets
 
-secret_key_id = ""
-secret_key_secret = ""
-
 class Sample(object):
     def __init__(self):
         pass

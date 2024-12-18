@@ -11,7 +11,7 @@ from src.utils import base64_decode
 # 配置日志
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
-def jwt_required(handler_method):
+def login_jwt_required(handler_method):
     """JWT 认证装饰器"""
     @wraps(handler_method)
     def wrapper(self, *args, **kwargs):
