@@ -42,7 +42,7 @@ class Sample(object):
         preload_caches_request = esa20240910_models.PreloadCachesRequest(
             site_id=489862422922832,
             content=[
-                'https://www.aalive.io/'
+                'https://test.exmaple.com/'
             ]
         )
         runtime = util_models.RuntimeOptions()
@@ -65,7 +65,7 @@ class Sample(object):
         preload_caches_request = esa20240910_models.PreloadCachesRequest(
             site_id=489862422922832,
             content=[
-                'https://www.aalive.io/'
+                'https://test.exmaple.com/'
             ]
         )
         runtime = util_models.RuntimeOptions()

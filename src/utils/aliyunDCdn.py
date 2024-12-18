@@ -42,11 +42,11 @@ class Sample(object):
     ) -> None:
         client = Sample.create_client()
         refresh_dcdn_object_caches_request = dcdn_20180115_models.RefreshDcdnObjectCachesRequest(
-            object_path='http://www.aalive.io',
+            object_path='http://test.exmaple.com',
             object_type='Directory'
         #     object_type='File',
-        #     object_path='''https://www.aalive.io\
-        # https://www.aalive.io/index.html'''
+        #     object_path='''https://test.exmaple.com\
+        # https://test.exmaple.com/index.html'''
         )
         runtime = util_models.RuntimeOptions()
         try:
@@ -66,7 +66,7 @@ class Sample(object):
     ) -> None:
         client = Sample.create_client()
         refresh_dcdn_object_caches_request = dcdn_20180115_models.RefreshDcdnObjectCachesRequest(
-            object_path='http://www.aalive.io',
+            object_path='http://test.exmaple.com',
             object_type='Directory',
             force=True
         )
@@ -111,7 +111,7 @@ class Sample(object):
         client = Sample.create_client()
         preload_dcdn_object_caches_request = dcdn_20180115_models.PreloadDcdnObjectCachesRequest(
             area='overseas',
-            object_path='https://aasgeq.com/'
+            object_path='https://test.exmaple.com/'
         )
         runtime = util_models.RuntimeOptions()
         try:
