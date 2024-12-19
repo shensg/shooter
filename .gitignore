@@ -6,4 +6,5 @@ __pycache__
 config.py
 *.log
 test-table.py
+test.py
 cloudflare.txt
