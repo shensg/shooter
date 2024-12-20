@@ -13,9 +13,10 @@ from alibabacloud_tea_util.client import Client as UtilClient
 from src.models.sys import Secrets
 
 
-class Sample(object):
-    def __init__(self):
-        pass
+class AliyunRefresh(object):
+    def __init__(self, **kwargs):
+        self.host_list = kwargs['data']['data']
+        self.hosts = self.host_list[0].split('/')[2]
 
     @staticmethod
     def create_client() -> dcdn20180115Client:
