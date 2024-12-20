@@ -23,9 +23,9 @@ class User(Model):
     title_url = CharField()
     describe = CharField(default=None)
     stated = IntegerField(default=1)
-    u_group_id = IntegerField()
-    create_at = DateField(datetime.now())
-    update_at = DateField(null=True)
+    g_id = IntegerField()
+    create_at = DateTimeField(default=datetime.now())
+    update_at = DateTimeField(null=True)
 
     class Meta:
         database = db
@@ -33,12 +33,12 @@ class User(Model):
 
 
 class Group(Model):
-    u_group_id = PrimaryKeyField()
+    g_id = PrimaryKeyField()
     name = CharField()
     nickname = CharField()
     r_id = CharField()
-    create_at = DateField(datetime.now())
-    update_at = DateField(null=True)
+    create_at = DateTimeField(default=datetime.now())
+    update_at = DateTimeField(null=True)
 
     class Meta:
         database = db
@@ -46,7 +46,7 @@ class Group(Model):
 
 
 class Route(Model):
-    r_id = PrimaryKeyField()
+    route_id = PrimaryKeyField()
     path = CharField()
     describe = CharField()
 
