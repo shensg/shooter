@@ -10,13 +10,11 @@ from alibabacloud_tea_openapi import models as open_api_models
 from alibabacloud_dcdn20180115 import models as dcdn_20180115_models
 from alibabacloud_tea_util import models as util_models
 from alibabacloud_tea_util.client import Client as UtilClient
-from src.models.sys import Secrets
 
 
-class AliyunRefresh(object):
-    def __init__(self, **kwargs):
-        self.host_list = kwargs['data']['data']
-        self.hosts = self.host_list[0].split('/')[2]
+class Sample(object):
+    def __init__(self):
+        pass
 
     @staticmethod
     def create_client() -> dcdn20180115Client:
@@ -67,7 +65,7 @@ class AliyunRefresh(object):
     ) -> None:
         client = Sample.create_client()
         refresh_dcdn_object_caches_request = dcdn_20180115_models.RefreshDcdnObjectCachesRequest(
-            object_path='http://test.exmaple.com',
+            object_path='http://www.aalive.io',
             object_type='Directory',
             force=True
         )
@@ -112,7 +110,7 @@ class AliyunRefresh(object):
         client = Sample.create_client()
         preload_dcdn_object_caches_request = dcdn_20180115_models.PreloadDcdnObjectCachesRequest(
             area='overseas',
-            object_path='https://test.exmaple.com/'
+            object_path='https://aasgeq.com/'
         )
         runtime = util_models.RuntimeOptions()
         try:

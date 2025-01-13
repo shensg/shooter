@@ -1,0 +1,1 @@
+INSERT INTO `shooter`.`user` (`user_id`, `name`, `nickname`, `email`, `password`, `describe`, `stated`, `role_id`, `create_at`, `update_at`) VALUES (1, 'admin', '管理员', 'admin@shooter.com', 'c2hvb3RlcjEyMw==', '超级管理员爱干饭', 1, 1, '2024-12-31 15:57:39', '2024-12-31 15:57:49');

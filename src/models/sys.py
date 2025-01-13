@@ -16,14 +16,13 @@ BooleanField: 用于布尔值。
 
 class User(Model):
     user_id = PrimaryKeyField()
-    name = CharField(unique=True, max_length=32)
-    nickname = CharField()
-    email = CharField()
-    password = CharField()
-    title_url = CharField()
-    describe = CharField(default=None)
-    stated = IntegerField(default=1)
-    g_id = IntegerField()
+    name = CharField(unique=True, max_length=32, constraints=[SQL("COMMENT '用户名'")])
+    nickname = CharField(constraints=[SQL("COMMENT '用户别名'")])
+    email = CharField(constraints=[SQL("COMMENT '邮箱'")])
+    password = CharField(constraints=[SQL("COMMENT '用户密码'")])
+    describe = CharField(default=None, constraints=[SQL("COMMENT '描述'")])
+    stated = IntegerField(default=1, constraints=[SQL("COMMENT '1：正常使用；2：禁用用户'")])
+    role_id = IntegerField(default=None, constraints=[SQL("COMMENT '角色ID'")])
     create_at = DateTimeField(default=datetime.now())
     update_at = DateTimeField(null=True)
 
@@ -32,27 +31,25 @@ class User(Model):
         table_name = "user"
 
 
-class Group(Model):
-    g_id = PrimaryKeyField()
+class Role(Model):
+    role_id = PrimaryKeyField()
+    name = CharField(unique=True, max_length=32, constraints=[SQL("COMMENT '角色名'")])
+    Permission = CharField(unique=True, constraints=[SQL("COMMENT '权限ID，字符串存储'")])
+    describe = CharField(default=None)
+
+    class Meta:
+        database = db
+        table_name = "role"
+
+
+class Path(Model):
+    path_id = PrimaryKeyField()
     name = CharField()
-    nickname = CharField()
-    r_id = CharField()
-    create_at = DateTimeField(default=datetime.now())
-    update_at = DateTimeField(null=True)
-
-    class Meta:
-        database = db
-        table_name = "group"
-
-
-class Route(Model):
-    route_id = PrimaryKeyField()
     path = CharField()
-    describe = CharField()
 
     class Meta:
         database = db
-        table_name = "route"
+        table_name = "path"
 
 
 class Secrets(Model):
