@@ -41,7 +41,7 @@ class BaseHandler(tornado.web.RequestHandler):
         else:
             self.json_body = {k: self.get_body_argument(k) for k in self.request.body_arguments}
 
-        logging.info(f"Initialized request data: query_params={self.query_params}, json_body={self.json_body}")
+        # logging.info(f"Initialized request data: query_params={self.query_params}, json_body={self.json_body}")
 
     def write_error(self, status_code, **kwargs):
         """自定义错误响应"""

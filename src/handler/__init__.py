@@ -49,7 +49,7 @@ class LoginHandler(BaseHandler):
         # 验证用户名和密码
         user_data = User.select().where(User.name == username).get()
         passwd_decode = base64_decode(user_data.password)
-        print(user_data.name, passwd_decode, username, user_data.password)
+        # print(user_data.name, passwd_decode, username, user_data.password)
         if username in user_data.name and passwd_decode == password:
             # 生成 JWT Token
             expiration = datetime.datetime.utcnow() + datetime.timedelta(minutes=EXPIRATION_TIME)
