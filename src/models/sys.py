@@ -44,8 +44,8 @@ class Role(Model):
 
 class Path(Model):
     path_id = PrimaryKeyField()
-    name = CharField()
     path = CharField()
+    describe = CharField()
 
     class Meta:
         database = db

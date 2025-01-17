@@ -21,7 +21,8 @@ class UserAdd(BaseHandler):
             else:
                 User.insert(name=self.get_json_body("username"), nickname=self.get_json_body("nickname"),
                             email=self.get_json_body("email"), password=base64_encode(self.get_json_body("password")),
-                            describe=self.get_json_body("describe"), create_at=datetime.now(), update_at=datetime.now())
+                            describe=self.get_json_body("describe"), create_at=datetime.now(),
+                            update_at=datetime.now()).execute()
                 data_code["msg"] = "User add success"
                 self.write(data_code)
         except EOFError as e:
